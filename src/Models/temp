@@ -1,0 +1,52 @@
+{\"contactEmail\":\"temp@temp.com\",\"userId\": {\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"},\"uploadId\":n179,\"listId\":0,\"companyId\":5647,\"contactNumber\":null}. mysql-error-code: 22032 error-msg: Invalid JSON text in argument 1 to function json_extract: \"Invalid value.\" at position 141.'
+
+
+{"contactEmail":"temp@temp.com","userId": {"contact email":"temp@temp.com","first name":"temp","last name":"emp1 ","gender":"M"},"uploadId":n179,"listId":0,"companyId":5647,"contactNumber":null}. mysql-error-code: 22032 error-msg: Invalid JSON text in argument 1 to function json_extract: "Invalid value." at position 141.
+
+
+
+ '{"contactEmail":"temp@temp.com","userId":{"contact email":"temp@temp.com","first name":"temp","last name":"emp1 ","gender":"M"},"uploadId":179,"listId":0,"companyId":5647,"contactNumber":null}',
+ '{"contactEmail":"temp2@temp.com","userId":{"contact email":"temp2@temp.com","first name":"temp","last name":"emp2","gender":"F"},"uploadId":179,"listId":0,"companyId":5647,"contactNumber":null}'
+
+
+
+
+
+
+
+
+
+
+
+ ** arg1:
+
+ [{"contactEmail":"temp@temp.com","userId":{"contact email":"temp@temp.com","first name":"temp","last name":"emp1 ","gender":"M"},"uploadId":179,"listId":0,"companyId":5647,"contactNumber":null},{"contactEmail":"temp2@temp.com","userId":{"contact email":"temp2@temp.com","first name":"temp","last name":"emp2","gender":"F"},"uploadId":179,"listId":0,"companyId":5647,"contactNumber":null}]
+
+ {"contactEmail":"temp@temp.com","userId":{"contact email":"temp@temp.com","first name":"temp","last name":"emp1 ","gender":"M"},"uploadId":179,"listId":0,"companyId":5647,"contactNumber":null},{"contactEmail":"temp2@temp.com","userId":{"contact email":"temp2@temp.com","first name":"temp","last name":"emp2","gender":"F"},"uploadId":179,"listId":0,"companyId":5647,"contactNumber":null}
+
+
+
+ ** arg1:["'{\"contactEmail\":\"temp@temp.com\",\"userId\":{\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"},\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91}","'","'{\"contactEmail\":\"temp2@temp.com\",\"userId\":{\"contact email\":\"temp2@temp.com\",\"first name\":\"temp\",\"last name\":\"emp2\",\"gender\":\"F\"},\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91}","'"]
+
+
+ ** arg1:["'{\"contactEmail\":\"temp@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"}}'","'{\"contactEmail\":\"temp2@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp2@temp.com\",\"first name\":\"temp\",\"last name\":\"emp2\",\"gender\":\"F\"}}'"]
+
+
+
+ ** arg1:"'['{\"contactEmail\":\"temp@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"}}','{\"contactEmail\":\"temp2@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp2@temp.com\",\"first name\":\"temp\",\"last name\":\"emp2\",\"gender\":\"F\"}}']'"
+
+
+ ** arg1:"['{\"contactEmail\":\"temp@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"}}','{\"contactEmail\":\"temp2@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp2@temp.com\",\"first name\":\"temp\",\"last name\":\"emp2\",\"gender\":\"F\"}}']"
+
+
+
+ ** arg1:["{\"contactEmail\":\"temp@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"}}", "{\"contactEmail\":\"temp2@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp2@temp.com\",\"first name\":\"temp\",\"last name\":\"emp2\",\"gender\":\"F\"}}"]
+
+
+ ** arg1:[{"contactEmail":"temp@temp.com","uploadId":179,"listId":0,"companyId":5647,"contactNumber":91,"userId":{"contact email":"temp@temp.com","first name":"temp","last name":"emp1 ","gender":"M"}},{"contactEmail":"temp2@temp.com","uploadId":179,"listId":0,"companyId":5647,"contactNumber":91,"userId":{"contact email":"temp2@temp.com","first name":"temp","last name":"emp2","gender":"F"}}]
+
+ ** arg1:[{"contactEmail":"temp@temp.com","uploadId":179,"listId":0,"companyId":5647,"contactNumber":91,"userId":{"contact email":"temp@temp.com","first name":"temp","last name":"emp1 ","gender":"M"}},{"contactEmail":"temp2@temp.com","uploadId":179,"listId":0,"companyId":5647,"contactNumber":91,"userId":{"contact email":"temp2@temp.com","first name":"temp","last name":"emp2","gender":"F"}}]
+
+
+
+  Error on item "'{\"contactEmail\":\"temp@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp@temp.com\",\"first name\":\"temp\",\"last name\":\"emp1 \",\"gender\":\"M\"}}','{\"contactEmail\":\"temp2@temp.com\",\"uploadId\":179,\"listId\":0,\"companyId\":5647,\"contactNumber\":91,\"userId\":{\"contact email\":\"temp2@temp.com\",\"first name\":\"temp\",\"last name\":\"emp2\",\"gender\":\"F\"}}'". mysql-error-code: 42000 error-msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NULL' at line 1

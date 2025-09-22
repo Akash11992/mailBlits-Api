@@ -1,0 +1,5 @@
+CREATE DEFINER=`sqmmysql`@`%` PROCEDURE `sqm_sp_create_scheduler_document`(p_scheduler_rule_id int,p_company_id int,p_doc_name varchar(205),p_description longtext,p_created_by varchar(45),p_is_password_protected tinyint,p_password_value text,doc_format_id int,doc_path_url varchar(2056),campaign_id int,attachment_name varchar(45),attachment_path text,attachment_type varchar(45),is_document int)
+BEGIN
+insert into tbl_email_scedhuler_document_mapping(scheduler_rule_id,company_id,document_name,document_description,is_active,created_by,updated_by,is_password_protected,password_value,doc_format_id,doc_path_url,campaign_id,attachment_name,attachment_path,attachment_type,is_document)
+values(p_scheduler_rule_id,p_company_id,p_doc_name,p_description,1,p_created_by,p_created_by,p_is_password_protected,p_password_value,doc_format_id,doc_path_url,campaign_id,attachment_name,attachment_path,attachment_type,is_document);
+END

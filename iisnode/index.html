@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"CYLSYSSTORE-10724-stderr-1751091037303.txt","computername":"CYLSYSSTORE","pid":10724,"type":"stderr","created":1751091037303},{"file":"CYLSYSSTORE-10724-stdout-1751091037295.txt","computername":"CYLSYSSTORE","pid":10724,"type":"stdout","created":1751091037295},{"file":"CYLSYSSTORE-10724-stdout-1751165737197.txt","computername":"CYLSYSSTORE","pid":10724,"type":"stdout","created":1751165737197},{"file":"CYLSYSSTORE-12236-stderr-1751404237350.txt","computername":"CYLSYSSTORE","pid":12236,"type":"stderr","created":1751404237350},{"file":"CYLSYSSTORE-12236-stdout-1751404237342.txt","computername":"CYLSYSSTORE","pid":12236,"type":"stdout","created":1751404237342},{"file":"CYLSYSSTORE-12236-stdout-1751478937324.txt","computername":"CYLSYSSTORE","pid":12236,"type":"stdout","created":1751478937324},{"file":"CYLSYSSTORE-12560-stderr-1751508337693.txt","computername":"CYLSYSSTORE","pid":12560,"type":"stderr","created":1751508337693},{"file":"CYLSYSSTORE-12560-stdout-1751508337686.txt","computername":"CYLSYSSTORE","pid":12560,"type":"stdout","created":1751508337686},{"file":"CYLSYSSTORE-13980-stderr-1751403937475.txt","computername":"CYLSYSSTORE","pid":13980,"type":"stderr","created":1751403937475},{"file":"CYLSYSSTORE-13980-stdout-1751403937467.txt","computername":"CYLSYSSTORE","pid":13980,"type":"stdout","created":1751403937467},{"file":"CYLSYSSTORE-16008-stderr-1751508637288.txt","computername":"CYLSYSSTORE","pid":16008,"type":"stderr","created":1751508637288},{"file":"CYLSYSSTORE-16008-stdout-1751508637280.txt","computername":"CYLSYSSTORE","pid":16008,"type":"stdout","created":1751508637280},{"file":"CYLSYSSTORE-16848-stderr-1751195137664.txt","computername":"CYLSYSSTORE","pid":16848,"type":"stderr","created":1751195137664},{"file":"CYLSYSSTORE-16848-stdout-1751195137655.txt","computername":"CYLSYSSTORE","pid":16848,"type":"stdout","created":1751195137655},{"file":"CYLSYSSTORE-3268-stderr-1751299537396.txt","computername":"CYLSYSSTORE","pid":3268,"type":"stderr","created":1751299537396},{"file":"CYLSYSSTORE-3268-stdout-1751299537389.txt","computername":"CYLSYSSTORE","pid":3268,"type":"stdout","created":1751299537389},{"file":"CYLSYSSTORE-5224-stderr-1751299837240.txt","computername":"CYLSYSSTORE","pid":5224,"type":"stderr","created":1751299837240},{"file":"CYLSYSSTORE-5224-stdout-1751299837233.txt","computername":"CYLSYSSTORE","pid":5224,"type":"stdout","created":1751299837233},{"file":"CYLSYSSTORE-5224-stdout-1751354437316.txt","computername":"CYLSYSSTORE","pid":5224,"type":"stdout","created":1751354437316},{"file":"CYLSYSSTORE-9620-stderr-1751195437244.txt","computername":"CYLSYSSTORE","pid":9620,"type":"stderr","created":1751195437244},{"file":"CYLSYSSTORE-9620-stdout-1751195437233.txt","computername":"CYLSYSSTORE","pid":9620,"type":"stdout","created":1751195437233},{"file":"CYLSYSSTORE-9620-stdout-1751270140653.txt","computername":"CYLSYSSTORE","pid":9620,"type":"stdout","created":1751270140653}];
+        var lastUpdated = 1751508640323;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

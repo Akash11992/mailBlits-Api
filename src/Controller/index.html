@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+</head>
+<body>
+    <h1>Message Board</h1>
+    <form id="messageForm" action="/message" method="post">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("messageForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+
+            // Send form data to server
+            fetch("/message", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log(data); // Log response from server
+                // Optionally, display a success message or redirect the user
+            })
+            .catch(error => {
+                console.error("There was a problem with the fetch operation:", error);
+                // Optionally, display an error message to the user
+            });
+        });
+    </script>
+</body>
+</html>

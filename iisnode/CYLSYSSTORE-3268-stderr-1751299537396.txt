@@ -1,0 +1,7 @@
+(node:3268) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Application has thrown an uncaught exception and is terminated:
+Error: connect ETIMEDOUT
+    at Connection._handleTimeoutError (D:\MailBlitzMain\NodeApi_2\node_modules\mysql2\lib\connection.js:189:17)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)

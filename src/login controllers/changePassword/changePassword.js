@@ -1,0 +1,57 @@
+const bcrypt = require("bcryptjs");
+const dbConn = require("../../../config/db.config").promise();
+
+exports.ChangePassword = async (req, res, next) => {
+  try {
+    const oldPassword = req.body.oldPassword;
+    const newPassword = req.body.newPassword;
+
+    if (!req.body.oldPassword || !req.body.newPassword) {
+      throw { message: "Please provide password", code: 400 };
+    } else {
+      let [dbUser] = await dbConn.execute(
+        "SELECT * FROM `invite_users` WHERE `UserId`=?",
+        [req.body.UserId]
+      );
+      if (dbUser.length === 0) {
+        return res.json({
+          message: "Invalid UserId",
+        });
+      }
+
+      if (dbUser?.length === 0) {
+        return res.json({
+          message: "Invalid UserId",
+        });
+      } else if (!dbUser[0]?.IsActive) {
+        return res.json({
+          message: "User has been DeActivated",
+        });
+      } else if (bcrypt.compareSync(oldPassword, dbUser[0]?.Password)) {
+        const hash = await bcrypt.hashSync(newPassword, 10);
+
+        // const updatedUser = await updatePasswordById(user.userId, hash);
+        // delete updatedUser["Password"];
+
+        const [rows1] = await dbConn.execute(
+          "UPDATE `invite_users` SET `Password`=?  WHERE `UserId` = ?",
+          // 'call sendquickmail_db.ChangePassword(?,?)'
+
+          [hash, req.body.UserId]
+        );
+        if (rows1.affectedRows === 1) {
+          return res.status(201).json({
+            message: "Password has Updated successfully",
+            success: true,
+          });
+        }
+      } else {
+        return res.json({
+         message: "Invalid old password",
+       });
+      }
+    }
+  } catch (err) {
+    next(err);
+  }
+};

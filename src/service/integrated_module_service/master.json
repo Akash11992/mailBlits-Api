@@ -1,0 +1,14 @@
+[
+    {
+        "id": "CYLSYS_CRM",
+        "name": "CYLSYS CRM",
+        "source_id": 2,
+        "logo": "https://crm.cylsys.com/Includes/assets/images/product_logo.svg"
+    },
+    {
+        "id": "CYLSYS_HRMS",
+        "name": "CYLSYS HRMS",
+        "source_id": 3,
+        "logo": "https://hrms.cylsys.com/assets/demo/images/product_logo.svg"
+    }
+]
